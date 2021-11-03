@@ -56,8 +56,6 @@ dataset[['Quilometragem', 'Valor']].describe()
 
 dataset.info()
 
-
-
 """# <font color=green> 2. TRABALHANDO COM TUPLAS
 ---
 
@@ -177,159 +175,177 @@ dicionario = {key_1: value_1, key_2: value_2, ..., key_n: value_n}
 https://docs.python.org/3.6/library/stdtypes.html#typesmapping
 """
 
-
-
 carros = ['Jetta Variant', 'Passat', 'Crossfox']
 carros
 
 valores = [88078.64, 106161.94, 72832.16]
 valores
 
+carros.index('Passat')
 
+valores[carros.index('Passat')]
 
+dados = {'Jetta Variant': 88078.64, 'Passat': 106161.94, 'Crossfox': 72832.16}
+dados
 
-
-
-
-
+type(dados)
 
 """### Criando dicionários com *zip()*"""
 
+list(zip(carros, valores))
 
+dados = dict(zip(carros, valores))
+dados
 
+"""# 3.2 Operações com dicionários"""
 
+dados = {'Jetta Variant': 88078.64, 'Passat': 106161.94, 'Crossfox': 72832.16}
+dados
 
-"""# 3.2 Operações com dicionários
-
-## *dict[ key ]*
+"""## *dict[ key ]*
 
 Retorna o valor correspondente à chave (*key*) no dicionário.
 """
 
-
+dados['Passat']
 
 """## *key in dict*
 
 Retorna **True** se a chave (*key*) for encontrada no dicionário.
 """
 
+'Passat' in dados
 
+'Fusca' in dados
 
-
-
-
+'Fusca' not in dados
 
 """## *len(dict)*
 
 Retorna o número de itens do dicionário.
 """
 
-
+len(dados)
 
 """## *dict[ key ] = value*
 
 Inclui um item ao dicionário.
 """
 
+dados['DS5'] = 124549.07
 
-
-
+dados
 
 """## *del dict[ key ]*
 
 Remove o item de chave (*key*) do dicionário.
 """
 
+dados
 
-
-
+del dados['Passat']
+dados
 
 """# 3.3 Métodos de dicionários
+
+https://docs.python.org/3.6/tutorial/datastructures.html#dictionaries
+
+https://docs.python.org/3.6/library/stdtypes.html#typesmapping
 
 ## *dict.update()*
 
 Atualiza o dicionário.
 """
 
+dados
 
+dados.update({'Passat': 106161.94})
 
+dados
 
+dados.update({'Passat': 106161.95, 'Fusca': 150000})
+dados
 
 """## *dict.copy()*
 
 Cria uma cópia do dicionário.
 """
 
+dados_copy = dados.copy()
 
+dados_copy
 
+del dados_copy['Fusca']
+dados_copy
 
-
-
-
-
+dados
 
 """## *dict.pop(key[, default ])*
 
 Se a chave for encontrada no dicionário, o item é removido e seu valor é retornado. Caso contrário, o valor especificado como *default* é retornado. Se o valor *default* não for fornecido e a chave não for encontrada no dicionário um erro será gerado.
 """
 
+dados_copy
 
+dados_copy.pop('Passat')
 
+dados_copy
 
+# dados_copy.pop('Passat')
 
+dados_copy.pop('Passat', 'Chave não encontrada')
 
+dados_copy.pop('DS5', 'Chave não encontrada')
 
-
-
-
-
-
-
-
-
-
-
-
+dados_copy
 
 """## *dict.clear()*
 
 Remove todos os itens do dicionário.
 """
 
+dados_copy.clear()
 
+dados_copy
 
+"""# 3.4 Iterando em dicionários"""
 
+dados = {'Crossfox': 72832.16, 'DS5': 124549.07, 'Fusca': 150000, 'Jetta Variant': 88078.64, 'Passat': 106161.95, }
+dados
 
-"""# 3.4 Iterando em dicionários
-
-## *dict.keys()*
+"""## *dict.keys()*
 
 Retorna uma lista contendo as chaves (*keys*) do dicionário.
 """
 
+dados.keys()
 
-
-
+for key in dados.keys():
+  print(dados[key])
 
 """## *dict.values()*
 
 Retorna uma lista com todos os valores (*values*) do dicionário.
 """
 
-
+dados.values()
 
 """## *dict.items()*
 
 Retorna uma lista contendo uma tupla para cada par chave-valor (*key-value*) do dicionário.
 """
 
+dados.items()
 
+for item in dados.items():
+  print(item)
 
+for key,value in dados.items():
+  print(key,value)
 
-
-
-
-
+for key,value in dados.items():
+  if value > 100000:
+    print(key)
 
 """# <font color=green> 4. FUNÇÕES E PACOTES
 ---
