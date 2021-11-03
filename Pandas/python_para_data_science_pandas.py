@@ -362,17 +362,23 @@ https://docs.python.org/3.6/library/functions.html
 dados = {'Jetta Variant': 88078.64, 'Passat': 106161.94, 'Crossfox': 72832.16}
 dados
 
+valores = []
+for valor in dados.values():
+  valores.append(valor)
+valores
 
+soma = 0
+for valor in dados.values():
+  soma += valor
+soma
 
+list(dados.values())
 
+sum(dados.values())
 
+help(print)
 
-
-
-
-
-
-
+print?
 
 """# 4.2 Definindo funções sem e com parâmetros
 
@@ -386,9 +392,11 @@ def <nome>():
 ```
 """
 
+def media():
+  valor = (1 + 2 + 3) / 3
+  print(valor)
 
-
-
+media()
 
 """### Funções com parâmetros
 
@@ -400,19 +408,25 @@ def <nome>(<param_1>, <param_2>, ..., <param_n>):
 ```
 """
 
+def media(number_1, number_2, number_3):
+  valor = (number_1 + number_2 + number_3) / 3
+  print(valor)
 
+media(1,2,3)
 
+media(23,45,67)
 
+def media(lista):
+  valor = sum(lista) / len(lista)
+  print(valor)
 
+media([1,2,3,4,5,6,7,8,9])
 
+resultado = media([1,2,3,4,5,6,7,8,9])
 
+resultado
 
-
-
-
-
-
-
+type(resultado)
 
 """# 4.3 Definindo funções que retornam valores
 
@@ -427,13 +441,15 @@ def <nome>(<param_1>, <param_2>, ..., <param_n>):
 ```
 """
 
+def media(lista):
+  valor = sum(lista) / len(lista)
+  return valor
 
+media([1,2,3,4,5,6,7,8])
 
+resultado = media([1,2,3,4,5,6,7,8])
 
-
-
-
-
+resultado
 
 """### Funções que retornam mais de um valor
 
@@ -446,15 +462,17 @@ def <nome>(<param_1>, <param_2>, ..., <param_n>):
 ```
 """
 
+def media(lista):
+  valor = sum(lista) / len(lista)
+  return valor, len(lista)
 
+media([1,2,3,4,5,6,7,8,9])
 
+resultado,n = media([1,2,3,4,5,6,7,8,9])
 
+resultado
 
-
-
-
-
-
+n
 
 """# <font color=green> 5. PANDAS BÁSICO
 ---
